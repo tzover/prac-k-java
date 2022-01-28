@@ -1,0 +1,13 @@
+version: "3.3"
+services:
+  app:
+    image: ${PROJ_NAME}:latest
+    container_name: ${PROJ_NAME}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - ${DEV_PORT}:${DEV_PORT}
+    tty: true
+    volumes:
+      - ./server/src:/usr/src:cached
